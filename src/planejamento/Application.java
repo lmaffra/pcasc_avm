@@ -9,9 +9,10 @@ public class Application {
 
 	private static List<Recurso> carregarRecursos() {
 		List<Recurso> recursos = new ArrayList<>();
-		recursos.add(new Recurso("Musculação", 5, 2));
-		recursos.add(new Recurso("Esteira", 8, 2));
-		recursos.add(new Recurso("Bicleta", 4, 2));
+        recursos.add(new Recurso("CPU 1", 35, 17));
+        recursos.add(new Recurso("CPU 2", 25, 8));
+        recursos.add(new Recurso("Disco Rápido", 40, 15));
+        recursos.add(new Recurso("Disco Lento", 90, 9));
 		return recursos;
 	}
 	
@@ -22,9 +23,9 @@ public class Application {
 		recursos.forEach(r -> r.setClientes(0));
 		map.put(0, recursos);
 		
-		for(int i = 1; i < 5; i++) {
+		for(int i = 1; i < 100; i++) {
 			recursos = carregarRecursos();
-			for(int j = 0; j < 3; j++) {
+			for(int j = 0; j < recursos.size(); j++) {
 				recursos.get(j).setTempoResposta(recursos.get(j).getTempo() * (1 + map.get(i-1).get(j).getClientes()));
 				System.out.println("R " + recursos.get(j).getNome() + ":" + recursos.get(j).getTempoResposta());
 			};
